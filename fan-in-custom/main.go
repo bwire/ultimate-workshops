@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// fan-in - fan-out without Watgroup. Worker of workers concept.
+// fan-in without Waitgroup. Worker of workers concept.
 func main() {
 	numChannel := func(done <-chan interface{}, guard chan<- interface{}, name string) <-chan string {
 		numbersChannel := make(chan string)
