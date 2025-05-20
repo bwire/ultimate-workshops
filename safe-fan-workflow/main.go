@@ -108,6 +108,4 @@ func main() {
 	for v := range fanIn(done, guard, workers...) {
 		fmt.Println(v)
 	}
-
-	close(guard)
 }
