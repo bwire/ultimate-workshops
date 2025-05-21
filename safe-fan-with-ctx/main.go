@@ -50,10 +50,12 @@ func main() {
 						case <-ctx.Done():
 							return
 						case guard <- struct{}{}:
+							return
 						}
 					}
 					select {
 					case <-ctx.Done():
+						return
 					case worker <- v * v:
 					}
 				}
@@ -112,5 +114,6 @@ func main() {
 		fmt.Println(v)
 	}
 
+	close(guard)
 	cancel()
 }
